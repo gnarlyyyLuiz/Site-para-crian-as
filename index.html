@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mundo Super Mágico 🚀🎨</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Canvas Confetti para efeitos de comemoração -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">✨ SuperMundo</div>
+    <nav class="nav-pills">
+      <button class="nav-btn active" onclick="mostrarAba('sons', this)">
+        <span>🔊</span> Sons & Música
+      </button>
+      <button class="nav-btn" onclick="mostrarAba('jogos', this)">
+        <span>🎮</span> Super Jogos
+      </button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <!-- ABA 1: SONS & MÚSICA -->
+    <div id="aba-sons" class="tab-content active">
+      <div class="hero-section">
+        <h1>Toque, Ouça e Solte a Imaginação! 🎉</h1>
+        <p>Explore os sons mágicos e mude as cores do universo!</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="magic-card" onclick="tocarSomBicho('cachorro', this)">
+          <div class="emoji-wrapper">🐶</div>
+          <h3>Doguinho</h3>
+          <span class="badge">Au Au!</span>
+        </div>
+
+        <div class="magic-card" onclick="tocarSomBicho('gato', this)">
+          <div class="emoji-wrapper">🐱</div>
+          <h3>Gatinho</h3>
+          <span class="badge">Miau!</span>
+        </div>
+
+        <div class="magic-card" onclick="tocarSomBicho('passaro', this)">
+          <div class="emoji-wrapper">🐦</div>
+          <h3>Passarinho</h3>
+          <span class="badge">Piu Piu!</span>
+        </div>
+
+        <div class="magic-card highlight" onclick="mudarCorMagica()">
+          <div class="emoji-wrapper">🌈</div>
+          <h3>Cor Mágica</h3>
+          <span class="badge">Clique Aqui!</span>
+        </div>
+      </div>
+
+      <!-- PIANO MÁGICO GLOW -->
+      <div class="piano-wrapper">
+        <h2>🎹 Piano Neon Interativo</h2>
+        <div class="piano-keys">
+          <button class="key" onclick="tocarNotaGlow(261.63, 'C', this)">Dó</button>
+          <button class="key" onclick="tocarNotaGlow(293.66, 'D', this)">Ré</button>
+          <button class="key" onclick="tocarNotaGlow(329.63, 'E', this)">Mi</button>
+          <button class="key" onclick="tocarNotaGlow(349.23, 'F', this)">Fá</button>
+          <button class="key" onclick="tocarNotaGlow(392.00, 'G', this)">Sol</button>
+          <button class="key" onclick="tocarNotaGlow(440.00, 'A', this)">Lá</button>
+          <button class="key" onclick="tocarNotaGlow(493.88, 'B', this)">Si</button>
+          <button class="key alt" onclick="tocarNotaGlow(523.25, 'C2', this)">Dó²</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABA 2: JOGOS -->
+    <div id="aba-jogos" class="tab-content">
+      <div class="games-grid">
+
+        <!-- JOGO 1: GALINHA RADICAL -->
+        <div class="game-card">
+          <div class="game-header">
+            <h3>🐔 Galinha Radical</h3>
+            <span id="score-galinha" class="score-tag">Pontos: 0</span>
+          </div>
+          <div class="game-stage track-stage" id="stage-galinha" onclick="pularGalinha()">
+            <div class="obstacle-car" id="carro-animado">🏎️</div>
+            <div class="hero-chicken" id="galinha-hero">🐔</div>
+            <div class="road-line"></div>
+          </div>
+          <button class="btn-action" onclick="pularGalinha()">Pular! 🚀 (Ou Barra de Espaço)</button>
+        </div>
+
+        <!-- JOGO 2: POPOVER DE BALÕES -->
+        <div class="game-card">
+          <div class="game-header">
+            <h3>🎈 Caça aos Balões</h3>
+            <span id="score-baloes" class="score-tag">Pop: 0</span>
+          </div>
+          <div class="game-stage balloon-stage" id="stage-baloes">
+            <!-- Balões gerados dinamicamente -->
+          </div>
+          <button class="btn-action" onclick="gerarBalao()">Lançar Balão! ✨</button>
+        </div>
+
+        <!-- JOGO 3: MEMÓRIA DASESTRELAS -->
+        <div class="game-card">
+          <div class="game-header">
+            <h3>🧠 Memória Divertida</h3>
+            <span id="score-memoria" class="score-tag">Pares: 0/4</span>
+          </div>
+          <div class="memory-grid" id="grid-memoria"></div>
+          <button class="btn-action" onclick="iniciarMemoria()">Reiniciar Tabuleiro</button>
+        </div>
+
+        <!-- JOGO 4: VELHA NEON -->
+        <div class="game-card">
+          <div class="game-header">
+            <h3>⚡ Jogo da Velha Neon</h3>
+            <span id="turn-velha" class="score-tag">Vez: ❌</span>
+          </div>
+          <div class="tic-grid" id="grid-velha"></div>
+          <button class="btn-action" onclick="iniciarVelha()">Nova Partida</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Criado com 💖 e magia para desenvolvedores do futuro! 🚀</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
